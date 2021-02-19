@@ -36,8 +36,13 @@
         <activity android:name=".ui.welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="com.samsung.android.support.REMOTE_ACTION" />
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="main"
+                      android:scheme="yuedu" />
             </intent-filter>
 
             <meta-data
@@ -145,7 +150,17 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:alwaysRetainTaskState="true"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask" >
+
+            <intent-filter>
+                <action android:name="com.samsung.android.support.REMOTE_ACTION" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="home"
+                      android:scheme="yuedu" />
+            </intent-filter>
+        </activity>
         <!-- 阅读界面 -->
         <activity
             android:name=".ui.book.read.ReadBookActivity"
@@ -153,8 +168,13 @@
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="com.samsung.android.support.REMOTE_ACTION" />
-            </intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
+                <data android:host="read"
+                      android:scheme="yuedu" />
+            </intent-filter>
             <meta-data
                 android:name="com.samsung.android.support.REMOTE_ACTION"
                 android:resource="@xml/spen_remote_actions" />
